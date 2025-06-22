@@ -49,10 +49,22 @@ Compiles the collected texts into a single plain text file.
 Automatically downloads the file as extracted_texts_b.txt to your device.
 
 
-#Key Features:
+# Key Features:
 
 Does not require manual copying — everything is done with one click.
 
 Works on pages that are already loaded — no need to reload the page.
 
 Lightweight and easy to customize (you can change the class name, file name, or even remove the button if desired).
+
+
+
+
+
+
+
+
+
+
+
+(this is made fully by ChatGPT)

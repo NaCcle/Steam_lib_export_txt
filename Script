@@ -1,0 +1,66 @@
+// ==UserScript==
+// @name         Extraction de jeu steam depuis SteamDB
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  Récupère tous les textes des éléments avec la classe "b" et les exporte dans un fichier txt
+// @author       TonNom
+// @match        https://steamdb.info/*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    console.log('Tampermonkey Script Chargé ✔️');
+
+    function extraireTextes() {
+        let elements = document.querySelectorAll('.b');
+        let textes = [];
+        elements.forEach(el => {
+            let texte = el.innerText.trim();
+            if (texte) {
+                textes.push(texte);
+            }
+        });
+
+        if (textes.length === 0) {
+            alert("Aucun texte trouvé avec la classe 'b'.");
+            return;
+        }
+
+        let contenu = textes.join('\n');
+        let blob = new Blob([contenu], {type: 'text/plain'});
+        let url = URL.createObjectURL(blob);
+
+        let a = document.createElement('a');
+        a.href = url;
+        a.download = 'SteamGames.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        URL.revokeObjectURL(url);
+    }
+
+    function ajouterBouton() {
+        console.log('Ajout du bouton Exporter Textes ✔️');
+        let bouton = document.createElement('button');
+        bouton.innerText = 'Exporter textes .b';
+        bouton.style.position = 'fixed';
+        bouton.style.top = '20px';
+        bouton.style.right = '20px';
+        bouton.style.zIndex = 10000;
+        bouton.style.padding = '10px';
+        bouton.style.backgroundColor = '#4CAF50';
+        bouton.style.color = 'white';
+        bouton.style.border = 'none';
+        bouton.style.borderRadius = '5px';
+        bouton.style.cursor = 'pointer';
+
+        bouton.addEventListener('click', extraireTextes);
+
+        document.body.appendChild(bouton);
+    }
+
+    window.addEventListener('load', ajouterBouton);
+})();

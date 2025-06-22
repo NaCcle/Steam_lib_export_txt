@@ -11,7 +11,7 @@
 (function() {
     'use strict';
 
-    console.log('Tampermonkey Script Chargé ✔️');
+    console.log('Tampermonkey Script Chargé');
 
     function extraireTextes() {
         let elements = document.querySelectorAll('.b');
@@ -43,9 +43,9 @@
     }
 
     function ajouterBouton() {
-        console.log('Ajout du bouton Exporter Textes ✔️');
+        console.log('Ajout du bouton Exporter Textes');
         let bouton = document.createElement('button');
-        bouton.innerText = 'Exporter textes .b';
+        bouton.innerText = 'Exporter';
         bouton.style.position = 'fixed';
         bouton.style.top = '20px';
         bouton.style.right = '20px';

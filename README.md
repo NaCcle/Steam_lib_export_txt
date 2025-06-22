@@ -27,7 +27,7 @@ Make sure the script is enabled in your Tampermonkey dashboard.
 
 
 ## Step 4: Use the Script
-Go to [SteaDB](https://steamdb.info/), use your steam account to login, go to "Your Games" in the top right icons.
+Go to [SteamDB](https://steamdb.info/), use your steam account to login, go to "Your Games" in the top right icons.
 
 Once the page is fully loaded, a green button should appear at the top-right corner of the page (The button is a bit buggy, it sometimes goes behind the profile icon but you can still click on it)
 
